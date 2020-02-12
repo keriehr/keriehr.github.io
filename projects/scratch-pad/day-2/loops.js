@@ -41,9 +41,9 @@ function printArrayValuesInReverse(array) {
   // YOUR CODE ABOVE HERE //
 }
 
-// created a storage array to hold values
-//to get access to each value using s for in loop 
-//push each value to our array
+
+//to get access to each value using a for in loop 
+
 // we also have to reverse print the values since it asks us
 
 

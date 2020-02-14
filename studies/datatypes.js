@@ -109,42 +109,15 @@ console.log(num4) //=> prints NaN
 
 //When we assign primitive variables to other variables; we are copying the value to the new variable.Thus, they are copied by value.
 // A primitive data type has a fixed size in memory, that is why variables can directly store primitive types.
-var c = 10
-var d = c 
-console.log(c) //=> prints 10
-console.log(d) // => prints 10 because it copies the value of c
-
+var c = 10;
+var d = c ;
+console.log(c); //=> prints 10
+console.log(d); // => prints 10 because it copies the value of c
 
 // Since complex values can be any size, their values cannot be directly store in memory. So in order to access a complex type, we reference 
 //its location in memory (use the address in which that complex type is store at in memory). When we copy a complex types value or object to
 //another variable using =, we are copying the reference to the location stored in memory.
-var e = {student: 'josh'}
-var f = e
+var e = {student: 'josh'};
+var f = e;
 console.log(f) // prints => {student: 'josh'} 
 //f is referencing e's location in order to copy e's values
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

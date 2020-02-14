@@ -2,7 +2,7 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(start, end) {
 
 }
 
@@ -18,49 +18,107 @@ function sum() {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
+function reverseArray(array) {
 
+  
+  //array so use for loop
+var newArray = [];
+  //newArray 
+   for (var i = array.length-1; i >= 0; i--) { //looping through array backwards
+    newArray.push(array[i]); //pushing into the newarray
+     
+   }
+  return newArray; //returns new array
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(array) {
+  
+  
+  for (var i=1; i<array.length; i++){ //for loop bc looping through array
+    var x = array[i]; //index of array is equal to our variable x
+    array.splice(i,1); // splice off at "i" index, one item of the array
+    array.unshift(x); // using unshift to add the value back to the beginning of the array
+  }
+  return array; //and then return the array
 }
+  
+  
+  
+  
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
-
+function arrayToList(array) {
+  
+    var list = null; // if the array is empty it will be returned
+    for (var i=array.length-1; i>=0; i--)  // looping through array backwards
+        list = {value: array[i], rest:list}; //converts array to a list 
+           //taking the old value and overwriting it with a new value that references the old value.
+        
+    return list;//returing the list
 }
+  
+  
+  
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
+function listToArray(list) {
 
+var array = []; //creating array
+for (let node = list; node; node = node.rest) { //using syntax eqjs suggested
+  array.push(node.value); //pushing node value into the  array
+}
+return array; //returning the array
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
-
+function prepend(element, list) {  //takes element and a list as arguments
+  
+  var node = listToArray(list);  //using previous function 
+  node.unshift(element); //adding element to the beginning of the variable node
+   node = arrayToList(node);  //using previous function to make variable node = a new list
+  return node; // returning the new list 
+  
+  //instructions //creates a new list that adds the element to the front of the input list
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
+function nth(list, number) {
+  
+  
+   for ( var node = list; node; node = node.rest ) {
+  	var element = listToArray(node);
+    return element[number];
+  
 
 }
+  
+}
+
+/* which takes a list and a number and returns the element at the given position 
+in the list (with zero referring to the first element) or undefined when there is no such element.
+*/
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////

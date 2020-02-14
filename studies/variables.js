@@ -111,19 +111,3 @@ console.log(age); // => pringt Ref Error
 let name = "Jonny";
 const age = 31;
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

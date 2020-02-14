@@ -41,8 +41,6 @@ return newKey;
 
 function valuesToString(object) {
     
-    
-
 var value = [];
 
 for (var key in object){
@@ -53,8 +51,6 @@ if (typeof object[key] ===   "string"){
     
 
 } 
-
-
 
 var otherVal = value.join(" ");
 
@@ -81,11 +77,6 @@ function arrayOrObject(collection) {
     
     
     
-    
-    
-    
-    
-
 
 //////////////////////////////////////////////////////////////////////
 // Function 5 - Capitalize Word //////////////////////////////////////
@@ -122,14 +113,35 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
-}
-
+    
+    //search for name property 
+    //   , return name value
+    
+ for (var key in object){
+     let strName = object["name"].charAt(0).toUpperCase() + object["name"].slice(1);
+     var str1 = "Welcome " + strName + "!";
+ }   
+ 
+ return str1;
+ 
+ 
+ 
+} 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+    
+      
+ for (var key in object){
+     let strName1 = object["name"].charAt(0).toUpperCase() + object["name"].slice(1);
+     let species = object["species"].charAt(0).toUpperCase() + object["species"].slice(1);
+     var str2 =  strName1 + " is a " + species;
+ }   
+    
+    
+    return str2;
 
 }
 
@@ -139,6 +151,17 @@ function profileInfo(object) {
 
 function maybeNoises(object) {
 
+for (var key in object){
+    
+    if (Array.isArray(object['noises']) === true && object['noises'].length !== 0 ){
+        return object['noises'].join(' ');
+    
+}
+}return "there are no noises";
+
+
+
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -147,6 +170,10 @@ function maybeNoises(object) {
 
 function hasWord(string, word) {
 
+if (string.includes(word)){
+    return true;
+}else {return false}
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -154,6 +181,12 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
+    
+    for (var key in object){
+        object['friends'].push(name);
+        return object;
+    }
+    
 
 }
 
@@ -162,14 +195,32 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
-}
+    
+    
+    // use for in loop to look through the object for the key "friends"
+    for (var key in object){
+        if (key === "friends"){
+    //if there is the key "friends"...
+    for (var i = 0; i < object['friends'].length; i++){ //using for loop to check for the 'friends' value: "name"
+        if (object.friends[i] === name){ //if it is equal return true
+            return true;}
+    
+        } }}
+return false; // if not equal return false
+} // return object['friends'].includes(name)        return false // instead of lines 204 -207
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+    
+
+
+
+
+
+
 
 }
 

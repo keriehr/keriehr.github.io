@@ -4,13 +4,13 @@
 
 function objectValues(object) {
 
-var values = [];
+var values = [];  // created an array to store the values in
 
-for (var key in object){
-    values.push(object[key]);
+for (var key in object){    //for in loop to go loop through the object     
+    values.push(object[key]);   //pushing the values from the object in the values array
 }
 
-return values;
+return values; //returning values array
 
 } 
 
@@ -20,16 +20,16 @@ return values;
 
 function keysToString(object) {
 
-var keys = [];
+var keys = []; //created an array to store the keys in
 
-for (var key in object){
-    keys.push(key);
+for (var key in object){ //for in loop to looping through the object
+    keys.push(key); //pushing the keys into the keys array
     
    
 } 
-var newKey = keys.join(" ");
+var newKey = keys.join(" "); //turning the keys array into a string called newkey
 
-return newKey;
+return newKey; //returning the newkey string
 
 
 
@@ -41,22 +41,22 @@ return newKey;
 
 function valuesToString(object) {
     
-var value = [];
+var value = []; //creating an array to store the values in
 
-for (var key in object){
+for (var key in object){ //for in  loop to loop thru the object
 
-if (typeof object[key] ===   "string"){
-    value.push(object[key]);
+if (typeof object[key] ===   "string"){  //checking to see if type of the value is a string
+    value.push(object[key]); //if it is, we add the value to the value array
 }
     
 
 } 
 
-var otherVal = value.join(" ");
+var otherVal = value.join(" "); //then we change the array into a string
 
 
 
-return otherVal;
+return otherVal; //returning the string of values
     
 }  
     
@@ -68,10 +68,10 @@ return otherVal;
 
 function arrayOrObject(collection) {
     
-    if (Array.isArray(collection)){
-        return 'array';}
+    if (Array.isArray(collection)){ //checking to see if the collection is an array
+        return 'array';} // if it is an array, return the string "array"
         
-        else {return 'object'}
+        else {return 'object'} //otherwise, return "object"
     }
     
     
@@ -85,8 +85,9 @@ function arrayOrObject(collection) {
 function capitalizeWord(string) {
     
     
-    return string.charAt(0).toUpperCase() + string.slice(1)
-    
+    return string.charAt(0).toUpperCase() + string.slice(1) ;
+//    using charAt to go to the index of 0 and capitalize that letter and then concat the rest of the word to the new capatilized letter
+// it returns this new capatilazed word 
     
     
 }
@@ -98,12 +99,12 @@ function capitalizeWord(string) {
 function capitalizeAllWords(string) {
     
     
-      var words = string.split(' ');
-    for(var i = 0; i < words.length; i++) {
-        var word = words[i];
-        words[i] = word[0].toUpperCase() + word.slice(1);
+      var words = string.split(' '); // creating a variable that splits a string into an array of substrings
+    for(var i = 0; i < words.length; i++) { //for loop to loop through the array
+        var word = words[i]; //created another variable that takes each index..
+        words[i] = word[0].toUpperCase() + word.slice(1); //and here we capitalize each word 
     }
-    return words.join(' ');
+    return words.join(' '); // and return it as a string with spaces between each  word
     
     
 }
@@ -117,12 +118,13 @@ function welcomeMessage(object) {
     //search for name property 
     //   , return name value
     
- for (var key in object){
-     let strName = object["name"].charAt(0).toUpperCase() + object["name"].slice(1);
-     var str1 = "Welcome " + strName + "!";
+ for (var key in object){ //for in loop to loop thru the object
+     let strName = object["name"].charAt(0).toUpperCase() + object["name"].slice(1); 
+     // created a variable strName that stores the value of "name", capitalizes the first letter, and concats the rest of the word to the uppercase letter
+     var str1 = "Welcome " + strName + "!"; // variable str1  will concat Welcome + the uppercased name and a !
  }   
  
- return str1;
+ return str1; //returns the new string, str1
  
  
  
@@ -134,14 +136,17 @@ function welcomeMessage(object) {
 function profileInfo(object) {
     
       
- for (var key in object){
-     let strName1 = object["name"].charAt(0).toUpperCase() + object["name"].slice(1);
+ for (var key in object){  //for in loop to loop through object
+     let strName1 = object["name"].charAt(0).toUpperCase() + object["name"].slice(1);  
+     //capitalizing the first letter of name value
      let species = object["species"].charAt(0).toUpperCase() + object["species"].slice(1);
-     var str2 =  strName1 + " is a " + species;
+     //capitilzing first letter of species value
+     var str2 =  strName1 + " is a " + species; 
+     //concating uppercase name value + is a + uppercase species value
  }   
     
     
-    return str2;
+    return str2; //returning new string
 
 }
 
@@ -151,13 +156,14 @@ function profileInfo(object) {
 
 function maybeNoises(object) {
 
-for (var key in object){
+for (var key in object){  // for in loop to loop thru object
     
-    if (Array.isArray(object['noises']) === true && object['noises'].length !== 0 ){
-        return object['noises'].join(' ');
+    if (Array.isArray(object['noises']) === true && object['noises'].length !== 0 ){ 
+        // if the object has an array called noises, and its not empty..
+        return object['noises'].join(' '); // it will return the value of noises as a string
     
 }
-}return "there are no noises";
+}return "there are no noises"; // if not it will return this string
 
 
 
@@ -170,9 +176,9 @@ for (var key in object){
 
 function hasWord(string, word) {
 
-if (string.includes(word)){
-    return true;
-}else {return false}
+if (string.includes(word)){ //if the string contains this word..
+    return true; // it returns true
+}else {return false} // if not it returns false
 
 }
 
@@ -182,9 +188,9 @@ if (string.includes(word)){
 
 function addFriend (name, object) {
     
-    for (var key in object){
-        object['friends'].push(name);
-        return object;
+    for (let key in object){ // looping thru object
+        object['friends'].push(name); //adding the value, name, to the the array, friends, inside the object 
+        return object; // returns object
     }
     
 
@@ -215,11 +221,21 @@ return false; // if not equal return false
 
 function nonFriends(name, array) {
     
+  const result = [];      // create an array we have to later return
 
+ for(let i = 0; i < array.length ; i++){  //looping thru array 
+ 
+ //checking if current person is the target
+     if (array[i].name !== name){
+        
+         // checking if current person friends array includes the target
+         if (!array[i].friends.includes(name)){
+             result.push(array[i].name); //if it doesnt, add the non friend to the array, result.
+         }
+     }
+ }
 
-
-
-
+return result;  // returning the result array containing all the not friends names
 
 
 }
@@ -229,22 +245,59 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+    
+    
+//   if (key in object === key){ 
+//       object[key] = value}
+    
+    // for (var key in object) { //for in loop to loop thru object 
+    //   if (object.hasOwnProperty(key) !== key){
+        object[key] = value;
+      return object;
+    
 }
+    
+    // if (object.hasOwnProperty(key) === key){
+    //     object[key] = value;
+    // }
+    //  else {object.key = value}
+    // }
+    
+    
+  //  Should update the property <key> on <object> with new <value
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+    
+ 
+      for (let i = 0; i < array.length; i++){ //looping through array 
+          if (object.hasOwnProperty(array[i])){ //checking if object has a property that is the same as any in the index
+              delete object[array[i]]; // deleting the property that is the same 
+          }
+      }
+  }
+   
+    
+    
 
-}
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
+    
+   
+//declaring new array called unique
+//using new operator and  set to store unique values. using ... operator to turn set back into an array 
+
+let unique = [...new Set(array)];
+return unique //returning new array
 
 }
 

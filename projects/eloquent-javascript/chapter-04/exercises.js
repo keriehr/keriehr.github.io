@@ -2,7 +2,23 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end) {
+function range(start, end, step = start <= end ? 1 : -1) {
+
+
+
+let result = []; //created result array
+
+if (start === end){ return result} // if the start and end values are the same, return an empty array
+  
+  // for loop, loops up for positive step values
+  // and loops down for negative step values
+  for (let i = start; step >= 0 ? i <= end : i >= end; i+=step) {
+    result.push(i); //adds the indexes into result array
+  }
+  return result; //returns the array result
+
+
+
 
 }
 
@@ -10,7 +26,14 @@ function range(start, end) {
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
+function sum(numbers) {
+  
+ var result = 0;  //created result variable
+  for (let num of numbers) { //using for of loop to go thru array of numbers
+    result += num; //assigning the sum of nums to result
+  }
+  return result; //returning the result of sum
+ 
 
 }
 
@@ -104,19 +127,12 @@ function prepend(element, list) {  //takes element and a list as arguments
 function nth(list, number) {
   
   
-   for ( var node = list; node; node = node.rest ) {
-  	var element = listToArray(node);
-    return element[number];
-  
-
+   for ( var node = list; node; node = node.rest ) { //for loop, 
+  	var element = listToArray(node); //variable element is equal to the list to array node
+    return element[number];  //returning the element at give position in the list
 }
   
 }
-
-/* which takes a list and a number and returns the element at the given position 
-in the list (with zero referring to the first element) or undefined when there is no such element.
-*/
-
 
 
 
@@ -124,7 +140,34 @@ in the list (with zero referring to the first element) or undefined when there i
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
+function deepEqual(x, y) {
+  
+  
+   if (x === y) {   // if x is strictly equal to y, return true
+    return true;
+  }
+  else if ((typeof x == "object" && x != null) && (typeof y == "object" && y != null)) {
+    // if the type of x is an object (and not null) AND the type of y is an object (and not null) then go on to check...
+    if (Object.keys(x).length != Object.keys(y).length)  // if the length of value of x is not equal to y's value length then...
+      return false; // return false
+
+    for (var prop in x) { //for in loop to loop thru object 
+      if (y.hasOwnProperty(prop))  //checking for specified property
+      {  
+        if (! deepEqual(x[prop], y[prop])) // checking to see if their not equal 
+          return false; //return false
+      }
+      else
+        return false; //return false
+    }
+
+    return true; //return true 
+  }
+  else 
+    return false; //return false
+  
+  
+  
 
 }
 

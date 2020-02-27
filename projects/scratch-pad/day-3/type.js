@@ -107,14 +107,14 @@ function isCollection(value) {
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
     
-    if (typeof value == "string"){
+    if (typeof value === "string"){
         return "string"
     }// checking if value is a string, if it is, it returns "string"
     else if (Array.isArray(value)) {
          return "array"
      }// checking if value is an array, if it is, it returns "array"
   
-    else if (typeof value === undefined){
+    else if (typeof value === "undefined"){
         return "undefined";
     }// checking if value is undefined, if it is, it returns "undefined"
     

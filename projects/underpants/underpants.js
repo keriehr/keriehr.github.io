@@ -599,7 +599,7 @@ _.reduce = function(array, func, seed){
 *   var data = {a:"one"};
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
-*/
+*/cd
 
 
 _.extend = function(object){

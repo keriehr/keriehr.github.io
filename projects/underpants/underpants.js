@@ -22,7 +22,7 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 _.identity = function(value){
-    return value;
+    return value; //just creating a function that nust return the value unchanged
 };
 
 
@@ -49,35 +49,35 @@ _.identity = function(value){
 _.typeOf = function(value){
     
     
-     if (typeof value === "number"){
+     if (typeof value === "number"){ //if the type of the value is a number then return number 
         return "number";}
         
-  else if (typeof value === "string"){
+  else if (typeof value === "string"){ //if the type of the value is a string then return string
         return "string";}
    
-    else if (Array.isArray(value)) {
+    else if (Array.isArray(value)) {//if the type of the value is an array, return array
          return "array";}
   
-    else if (typeof value === "undefined"){ 
+    else if (typeof value === "undefined"){ //if the type of the value is undefined, return undefined
         return "undefined";}
 
-    else if (typeof value === "boolean"){
+    else if (typeof value === "boolean"){//if the type of the value is a boolean, return boolean
         return "boolean";}
     
-    else if (value === null){
+    else if (value === null){//if the type of the value is null, then return null
       return "null";}
     
-    else if (typeof value === "function"){
+    else if (typeof value === "function"){//if the type of the value is a function then return function
         return "function";}
     
-    else if (Object.prototype.toString.call(value) === '[object Date]'){
+    else if (Object.prototype.toString.call(value) === '[object Date]'){ ////if the type of the value is a date then return date
         return "date";}
 
-else if (typeof value === 'object'){
-     if (Array.isArray(value) || value === null || 
-     Object.prototype.toString.call(value) === '[object Date]')
-     {false}
-     else  {return "object"}
+else if (typeof value === 'object'){ //if the type of the value is an object
+     if (Array.isArray(value) || value === null ||  //if it is an array or null..
+     Object.prototype.toString.call(value) === '[object Date]') //or a  date..
+     {false} //it wont be an object
+     else  {return "object"} //otherwise return object 
     }
 };
 
@@ -102,18 +102,18 @@ else if (typeof value === 'object'){
 */
 
 _.first = function(array, num){
-    if (!Array.isArray(array)){
+    if (!Array.isArray(array)){ //if it isnt an array then return an empty array
         return [];
-    } else if (num > array.length){
+    } else if (num > array.length){ //if the numbur  is greater than the arrays length, then return the array
         return array;
-    } else if (num <= 0){
+    } else if (num <= 0){ //if the number is less than or equal to zero then return an emtpy array
         return [];
     }
-    else if (typeof num === "undefined" || isNaN(num)){
-        return array[0];
-    }  
-    else if (num <= array.length){
-        return array.slice(0, num);
+    else if (typeof num === "undefined" || isNaN(num)){  //if the type of the number is undefined or not a number..
+        return array[0]; //then return the first element of the array
+        }  
+    else if (num <= array.length){ //if the number is less than or equal to the arrays length then 
+        return array.slice(0, num); //return the array with elements from the zero index to the number given.
     }
 };
 
@@ -140,14 +140,14 @@ _.first = function(array, num){
 */
 
 _.last = function(array, num){
-    if (!Array.isArray(array) || num < 0){
+    if (!Array.isArray(array) || num < 0){ // if it is not an array or the number is less than zero return an empty array
         return [];
-    } else if  (num === undefined || isNaN(num)){
+    } else if  (num === undefined || isNaN(num)){ //if the number if undefined or not a number return the last element in the array
         return array[array.length - 1];
-    } else if (num > array.length){
+    } else if (num > array.length){ //if the number is bigger than the arrays length, just return the array
         return array;
     }
-    return array.slice(-num);
+    return array.slice(-num); //return the last elements in the array via given value
 };
 
 
@@ -174,8 +174,9 @@ _.last = function(array, num){
 
 _.indexOf = function(array, value){
     
-    const callback = (element) => element === value;
-  return array.findIndex(callback);
+    const callback = (element) => element === value; //if the element is equal to the value
+  return array.findIndex(callback); //returning the index of the array that has the first occurance of the value
+  // returns negative -1 if value is not in the array
     
     
 };
@@ -198,7 +199,7 @@ _.indexOf = function(array, value){
 
 _.contains = function(array, value){
     
-    return array.includes(value) ? true : false;
+    return array.includes(value) ? true : false; //if the array includes the given value it will return true, otherwise it returns false
     
 }
 
@@ -221,13 +222,13 @@ _.contains = function(array, value){
 
 _.each = function(collection, func){
    
-    if(Array.isArray(collection)) {
-        for(var i = 0; i < collection.length; i++) {
-            func(collection[i], i, collection);
+    if(Array.isArray(collection)) { //if the collection is an array
+        for(var i = 0; i < collection.length; i++) { //loop thru the array
+            func(collection[i], i, collection); //apply function to each element in the array
         }
     } else {
-        for (var key in collection) {
-            func(collection[key], key, collection);
+        for (var key in collection) { //if its an object
+            func(collection[key], key, collection); //apply the function to each property
         }
     }
     
@@ -248,19 +249,17 @@ _.each = function(collection, func){
 
 _.unique = function(array){
     
- let unique = [...new Set(array)];
+ let unique = [...new Set(array)]; //removing the dups from the array 
 
- let newarr = [array.indexOf(array)];
-if (newarr === -1){
-return unique;
+ let newarr = [array.indexOf(array)];  //using index of to find the index and created a variable assigned to it
+if (newarr === -1){ //if the new array is equal to -1, 
+return unique; //then return unique array
 }
-return unique;
+return unique; //returning the unique array
     
 };
 
 
-// for (let i = 0; i < array.length; i++){
-    
 
 
 
@@ -284,15 +283,15 @@ return unique;
 
 
 _.filter = function(array, func){
-    let result =[];
-     for(var i = 0; i < array.length; i++){
-          if (func(array[i], i, array)){
+    let result =[];//create an array
+     for(var i = 0; i < array.length; i++){ //for loop to loop thru an array
+          if (func(array[i], i, array)){ //if the function has the following arguments 
                   //element, index, array
-             result.push(array[i]);
+             result.push(array[i]); //then push the element into our new array
                }
          
      }
-           return result;
+           return result; //returning final array
            
 };
             
@@ -317,18 +316,18 @@ _.filter = function(array, func){
 
 _.reject = function(array, func){
     
-  
-      let newarr =[];
-     for(var i = 0; i < array.length; i++){
+   
+      let newarr =[]; //created an array
+     for(var i = 0; i < array.length; i++){ //looping thru the given array
          
-          if (!_.filter(array, func) === func(array[i], i, array)){
+          if (!_.filter(array, func) === func(array[i], i, array)){ //if it is the opposite/inverse of the filter function 
                   //element, index, array
-                  func(array[i], i, array);
-             newarr.push(array[i]);
+                  func(array[i], i, array); //the call the function for each element in the array with all 3 arguments
+             newarr.push(array[i]); //ppush the elements into the new array
               }
          
      }
-          return newarr;
+          return newarr; //return the new array
            
 };
     
@@ -358,22 +357,22 @@ _.reject = function(array, func){
 
 _.partition = function(array, func){
     
-    let truthy = [];
-    let falsey = [];
-    let botharr = [];
+    let truthy = []; //creating a truthy array
+    let falsey = []; //creating a falsey array
+    let botharr = []; //creating an array to hold both of the other array
     
-     for(var i = 0; i < array.length; i++){
-          if (func(array[i], i, array)){
-              truthy.push(array[i]);
+     for(var i = 0; i < array.length; i++){ //looping thru the given array
+          if (func(array[i], i, array)){ //if the function is called for element in the array with those arguments
+              truthy.push(array[i]); //push the truthy elements into the truthy array
               
           }
-          else {falsey.push(array[i]);
+          else {falsey.push(array[i]); //if it doesnt pass, push those falsey elements into the falsey array
           }
          
-     } botharr.push(truthy);
-     botharr.push(falsey);
+     } botharr.push(truthy); //pushing the truthy array into the both array
+     botharr.push(falsey); // adding the falsey array into the both array as well
           
-     return botharr ;
+     return botharr ; //returning the both array contains the truthy and falsey arrays
 };
 
 
@@ -398,17 +397,17 @@ _.partition = function(array, func){
 
 _.map = function(collection, action){
  
- let newarr = [];
+ let newarr = []; //creating empty array
  
 
 
-            _.each(collection, function(element, index, collection){
-                newarr.push(action(element, index, collection));
+            _.each(collection, function(element, index, collection){ //using each to see if the collection is an array or object
+                newarr.push(action(element, index, collection)); //saving the return value of each function call in the new array
             });
         
 
     
-    return newarr;
+    return newarr; //then i return the new array
 };
   
 
@@ -427,13 +426,14 @@ _.map = function(collection, action){
 
 _.pluck = function(array, property){
     
-    let newarr = _.map(array, function(element, index, array){
-       return element[property];
+    let newarr = _.map(array, function(element, index, array){ 
+        //creating a variable equal to the result of using map on the array
+       return element[property]; //returning the property of the key.
         
     });
     
     
-    return newarr;
+    return newarr; //returning the new array
     
 };
 
@@ -465,27 +465,27 @@ _.pluck = function(array, property){
 _.every = function(collection, func){
     
     
-    let answer = true
+    let answer = true //created a varibale to equal true
     
-    if (func){
+    if (func){ //if theres a function
     
-    _.each(collection, function(element, index, collection){
-     if (func(element, index, collection) === false) {
-         answer = false;
+    _.each(collection, function(element, index, collection){ //using each to see if the collection is an array or object
+     if (func(element, index, collection) === false) { //if the array doesnt have the parameters to call the function..
+         answer = false; //..then have answer become false
      } 
     
             });
         
     } else {
         _.each(collection, function(element, index, collection){
-     if (!element) {
-         answer = false;
+     if (!element) { //if the element is not true
+         answer = false; //have answer equal false
      } 
     
             });
     }
             
-        return answer;
+        return answer; //return final answer
 }
 
 
@@ -515,27 +515,27 @@ _.every = function(collection, func){
 _.some = function(collection, func){
     
     
-     let answer = false
+     let answer = false //created a varibale called answer
     
-    if (func){
+    if (func){ //if theres a function
     
-    _.each(collection, function(element, index, collection){
-     if (func(element, index, collection) === true) {
-         answer = true;
+    _.each(collection, function(element, index, collection){ //using each to see if its an object or array
+     if (func(element, index, collection) === true) { //if function with the passing araguments is true
+         answer = true; //have answer equal true
      } 
     
             });
         
     } else {
         _.each(collection, function(element, index, collection){
-     if (element) {
-         answer = true;
+     if (element) { //if there is a true element..
+         answer = true; //then answer is true 
      } 
     
             });
     }
             
-        return answer;
+        return answer; //return final answer
     
     
     
@@ -566,23 +566,25 @@ _.some = function(collection, func){
 _.reduce = function(array, func, seed){
     
     
-  let previousResult = ""  
+  let previousResult = ""   //created an emtpy string variable
   
          
-     for(var i = 0; i < array.length; i++) {
+     for(var i = 0; i < array.length; i++) { //using for loop to iterate thru the array
         
-         if ( i === 0 ){
+         if ( i === 0 ){ //if the index is 0 then check for...
              
-              if (seed === undefined || seed === false){
-                 seed = array[0]; i++;
+              if (seed === undefined || seed === false){ //if the seed is undefined or false..
+             
+                 seed = array[0]; i++; //have the seed become the zero index of the array.. continue onto next element
                   
               }
-                previousResult = seed;
+                previousResult = seed; //assign the value of seed to the previous result
          } 
-                previousResult = func(previousResult, array[i], i);
+                previousResult = func(previousResult, array[i], i); //assigning previous result to the value of calling the function 
+                //for the passing arguemnts
         }
     
-    return previousResult;
+    return previousResult; //returning the final previous result
     
 };
 
@@ -604,11 +606,11 @@ _.reduce = function(array, func, seed){
 
 _.extend = function(object){
 
-    let args = Array.from(arguments);
-    _.each(args, function(element, index, array){
-        Object.assign(object, element);
+    let args = Array.from(arguments); //created variable args that is assigned the array form of a object
+    _.each(args, function(element, index, array){ //using each to go thru object and apply function to the properties 
+        Object.assign(object, element); //copying all the elements(object2) and adding it to object(object1)
     });
-    return object;
+    return object;//returning the final object
 };
     
     

@@ -591,7 +591,7 @@ var tagCount = function(tag, node) {
 
 var binarySearch = function(array, target, min, max) {
   
-  if((max-min==0) && (target !== array[min])) return "Error: value is not in the array";
+  // if((max-min==0) && (target !== array[min])) return "Error: value is not in the array";
   
   if(min==undefined) min = 0;
   if(max==undefined) max = array.length-1;

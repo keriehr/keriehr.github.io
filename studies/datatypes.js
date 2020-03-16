@@ -19,7 +19,10 @@ console.log(b); // prints => -5.111
 //2. String //
 // A string is a simple data type that is just a string of characters you want to assign as the value.
 // It could be a name, a sentence, or any number of words. As long as it is inside quotations marks ('',"")
-//it will be considered a string.
+//it will be considered a string. We store each character in a string starting at a zero index.
+//We would use brakcet notation to access any character in the string.
+//To access the H in the string below, we could use weather[0] to access that H. Or weather[1] to access the o.. and so on.
+//To access the last character we would use weather[weather.length - 1].
 var weather = "Hot and Sunny, Temperature is 85.";
 console.log(weather); // => prints "Hot and Sunny, Temperature is 85."
 
@@ -31,13 +34,18 @@ console.log(currentlyAlive); //=> prints true
 
 //4. Array //
 //An array is a complex data type that is a collection. It is a collection that lets us store an indexed list of values.
-//This index list starts at 0. You can store any data type inside an array. To create an array, you'll need to use [].
+//This index list starts at 0 for the first element, 1 for the second element, and so on. We access values using brakcet notation.
+//To access "keri" in the array below, we could use myArray[0]. To access true, it would be myArray[1], and so on for the following elements.
+//To access the last element, we would use myArray[myArray.length-1]
+//You can store any data type inside an array. To create an array, you'll need to use [].
 var myArray = ["keri", true, 28];
 console.log(myArray); //=> prints ["keri", true, 28]
 
 //5. Object //
 //An object is another complex data type that is a collection. But unlike an array, the values stored inside an object
 // do not have an indexed postion. An object has key:value pairs instead. You create an object using {}.
+//To access an object we could use dot notation or bracket notation. Bracket notation to access a value in an object like below
+// would be myPet[name] to access "Bulleit". Or we could use dot notation, myPet.age would let us access the value 3.
 var myPet = {
     name: 'Bulleit',
     age: 3,
@@ -88,13 +96,18 @@ console.log(book); // => prints null
 // NaN stands for Not-A-Number. NaN is when the initial value is Not A Number. NaN is a simple data type.
 //It is also not a keyword like null, it is acutally a property of the global object.
 // for example, if you try to multiply a number times a string, it will come back NaN because the value doesn't equal a number at that point.
-var num4 = 4 * 'hi'
-console.log(num4) //=> prints NaN
+var num4 = 4 * 'hi';
+console.log(num4); //=> prints NaN
 
 // 10. Infinity //
 // Infinity is a global property. It is a numeric value that represents infinty.
 //Infinity represents a postive infinty and -Infinity represents a negative infinty.
 //Any positive number multiplied by Infinity equals Infinity; while any number divided by Infinity equals 0.
+let infin = Infinity + 1;
+console.log(infin); // => prints Infinity
+
+let neg = 1 / -0;
+console.log(neg);  // => prints -Infinity
 
 
 // 11. Difference between Simple and Complex Data Types //

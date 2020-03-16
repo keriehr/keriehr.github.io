@@ -54,4 +54,51 @@ else if (num < 14)
 {console.log('Chonk')}
 else {console.log('THIS IS THE DEFAULT')} // => prints this is default
 
-// 4. Switch statements are not important enough for me to mention just yet.
+// 4. Switch statements are similar to if statements but have a different syntax.
+// The switch statement executes different actions depending on different conditions.
+// The switch statement asseses an expression. The value of the expression is compared 
+// with the values of each case. If there is a match, the correlated block of code is executed.
+// A default case can be designated when the expression does not match a case.
+// Switch statements are a more clean and efficient way to code when your testing multiple conditions.
+// We can use switch statements when we have multiple values that can require the same code or 
+// when we are comparing multiple possible conditions of an expression. Switch statements use strict 
+//comparisons so the case values must be the same type as the values of the expression to match.
+
+// Example syntax:
+//    switch (expression) {
+//      case value1:
+            //Code block executed if the result of expression matches value1.
+//      break;
+//      case value2:
+           //Code block executed if the result of expression matches value2.
+//      break;
+//      default:
+//      default code block }
+
+
+//Example:
+var fruits = "Papaya";
+
+switch(fruits) {
+  case "Banana":
+    console.log("Banana is gross!");
+    break;
+  case "Orange":
+    console.log("I like oranges.");
+    break;
+  case "Apple":
+    console.log("Granny Smith or Gala?");
+    break;
+  default:
+    console.log("I have never had that fruit...");
+} 
+//  => prints "I have never had that fruit..."
+
+
+
+
+
+
+
+
+

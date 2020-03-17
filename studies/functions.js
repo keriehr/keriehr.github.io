@@ -38,8 +38,11 @@ multiply(5, 2); // => returns 10
 // We can assign a function to a variable which is called a function expression.
 
 // Example of a function expression:
- let funky = multiply(); 
+ let add = function(num1, num2){
+     return num1 + num2;
+ }; 
 
+add(2, 3); // =>  returns 5
 
 
 // 3. Scopes //
@@ -76,11 +79,10 @@ function funcyName() {
   function showName() {
     console.log(name);
   }
-  return showName;
+  return showName();
 }
 
-var whoaa = funcyName();
-whoaa(); // => prints "Keri"
+funcyName(); // => prints Keri
 
 
 

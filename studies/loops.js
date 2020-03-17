@@ -21,6 +21,16 @@
 //For loop, Reversed
      for(let i = 10 ; i > 0; i--){
       console.log(i)}   // => prints 10 9 8 7 6 5 4 3 2 1
+      
+// Looping through an array:  
+     var array = [ 1, 2, 3, 4, 5 ]; 
+for (let i = 0; i < array.length; i++) { 
+    console.log(array[i]); 
+}  // => prints 1, 2, 3, 4, 5
+      
+      for (let i = array.length-1; i >= 0; i--) { 
+    console.log(array[i]); 
+} // => prints 5, 4, 3, 2, 1
 
 
 // 2. For In Loop //
